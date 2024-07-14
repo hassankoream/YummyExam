@@ -1,0 +1,9 @@
+// way to improve:
+// 1- you can call get meals and send urls, names, as parameters , you repeated yourself
+//2- same thing to display
+// don't repeat yourself
+how to fix loading screen?
+// cors error: http:// is far different from https://
+To further explain, the || operator works as a fallback in JavaScript. If the value on the left side of || is falsy (e.g., null, undefined, false, 0, NaN, or an empty string), it will return the value on the right side. So, if result.meals is null or undefined, it will return an empty array [].
+
+
