@@ -113,6 +113,9 @@ $('document').ready(function () {
 
         displayMeals(meals) {
             let mealBox = '';
+            if(meals.length > 20) {
+                meals = meals.slice(0,20)
+            }
             for (const meal of meals) {
                 mealBox += `
                     <div  class="col-md-3 ">
@@ -135,6 +138,9 @@ $('document').ready(function () {
         }
 
         displayCategories(categories) {
+            if(categories.length > 20) {
+                categories = categories.slice(0,20)
+            }
             let categoriesBox = '';
             for (const category of categories) {
                 categoriesBox += `
@@ -154,6 +160,9 @@ $('document').ready(function () {
             rowData.innerHTML = categoriesBox;
         }
         displayAreas(areas) {
+            if(areas.length > 20) {
+                areas = areas.slice(0,20)
+            }
             let areasBox = '';
             for (const area of areas) {
                 areasBox += `
@@ -171,14 +180,17 @@ $('document').ready(function () {
         }
 
         displayIngredients(ingredients) {
+            if(ingredients.length > 20) {
+                ingredients = ingredients.slice(0,20)
+            }
             let ingredientsBox = '';
-            for (let i = 0; i < 24; i++) {
+            for (const ingredient of ingredients) {
                 ingredientsBox += `
                     <div class="col-md-3">
                         <div class="item-inner text-center">
                             <i class="fa-solid fa-drumstick-bite fa-4x"></i>
-                              <h3 class="text-capitalize">${ingredients[i].strIngredient}</h3>
-                            <p class='cut-line'>${ingredients[i].strDescription}</p>
+                              <h3 class="text-capitalize">${ingredient.strIngredient}</h3>
+                            <p class='cut-line'>${ingredient.strDescription}</p>
                         </div>
                     </div>
                 `;
@@ -236,6 +248,9 @@ $('document').ready(function () {
 
         }
         displayMealsByName(meals) {
+            if(meals.length > 20) {
+                meals = meals.slice(0,20)
+            }
             let mealBox = '';
             for (const meal of meals) {
                 mealBox += `
@@ -255,6 +270,9 @@ $('document').ready(function () {
             searchResult.innerHTML = mealBox;
         }
         displayMealsByLetter(meals) {
+            if(meals.length > 20) {
+                meals = meals.slice(0,20)
+            }
             let mealBox = '';
             for (const meal of meals) {
                 mealBox += `
@@ -432,7 +450,7 @@ $('document').ready(function () {
                         $(e.target).val(''); // Clear the input if the value is not a letter
                     }
                         const meals = await that.dataHandler.getByFirstLetter($('#searchLetter').val());
-                        console.log(meals);
+                     
                         that.displayHandler.displayMealsByLetter(meals);
                         that.handelMealItemClick();
                     })
